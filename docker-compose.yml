@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  php-cli:
+    image: phpstorm/php-cli:7.3-xdebug3.0
+    volumes:
+      - .:/opt/project
+      - ./coverage:/opt/phpstorm-coverage
+      - ./tmp:/tmp
+    working_dir: /opt/project
+    user: "1000:1000"
+
+  composer:
+    image: composer:2.0
+    volumes:
+      - .:/opt/project
+    working_dir: /opt/project
+    user: "1000:1000"

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         executionOrder="depends,defects"
+         forceCoversAnnotation="true"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="default">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">app</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <!-- The following won't matter because we override it with a CLI argument -->
+        <log type="coverage-clover" target="/tmp/coverage.xml"/>
+    </logging>
+</phpunit>
